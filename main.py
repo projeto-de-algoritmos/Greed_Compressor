@@ -6,10 +6,10 @@ with open('text.txt', 'r', encoding='UTF-8') as file:
     file_content = ''.join(file.readlines())
     frequencies = [Node(count = count, symbol = elem) for elem, count in Counter(file_content).most_common()]
 
-    print(frequencies)
+    #print(frequencies)
 
 priority_queue = PriorityQueue(frequencies)
-print(priority_queue.lst)
+#print(priority_queue.lst)
 
 while True:
     # TODO
@@ -25,6 +25,13 @@ while True:
     priority_queue.add(parent)
 
 print("Sort finalizado")
+print(parent)
+
+hash_table = {}
+parent.__generateHashT__(hash_table, "")
+
+print(hash_table)
+
 """
 TODO: 
 ENCODE:
