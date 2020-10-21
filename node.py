@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Tuple, Dict
 
 class Node:
 
@@ -6,7 +6,7 @@ class Node:
         self.symbol = symbol or "+"
         self.left = left
         self.right = right
-        self.count = count
+        self.count = count or self.getCount()
 
     def isLeaf(self) -> bool:
         return self.left == None and self.right == None
@@ -16,11 +16,11 @@ class Node:
             return self.count
         return self.left.getCount() + self.right.getCount()
 
-    def __generateHashT__(self, table: dict, key: str):
+    def generate_hashT(self, table: Dict, key: str):
         if(self.isLeaf()):
-            table.update({key: self.symbol})
+            table.update({self.symbol :key})
             return
 
-        self.left.__generateHashT__(table, key + "0")
-        self.right.__generateHashT__(table, key + "1")
+        self.left.generate_hashT(table, key + "0")
+        self.right.generate_hashT(table, key + "1")
     
