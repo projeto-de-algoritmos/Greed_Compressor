@@ -1,5 +1,5 @@
 from typing import List
-from node import Node
+from lib.node import Node
 
 class PriorityQueue:
     def __init__(self, lst: List['Node']):

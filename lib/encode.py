@@ -1,8 +1,9 @@
-from node import Node
-from priority_queue import PriorityQueue
+from lib.node import Node
+from lib.priority_queue import PriorityQueue
 from collections import Counter
+from bitstring import BitArray
 from typing import List, TextIO
-
+from lib.utils import Utils
 
 class Encode:
 
@@ -29,3 +30,16 @@ class Encode:
             encoded_text += encode_table[char]
         
         return encoded_text
+
+    # Faz a criação da árvore In-place. Logo não tem retorno
+    def encode_headers(self, node: 'Node', bitarray: 'BitArray', char_size: int) -> None:
+        if node.isLeaf():
+            bitarray.append('0b1')
+
+            encoded_char = Utils.encode_char(node.symbol)
+            encoded_char = "".join("0" for n in range(char_size - len(encoded_char))) + encoded_char
+            bitarray.append(f"0b{encoded_char}")
+        else:
+            bitarray.append('0b0')
+            self.encode_headers(node.left, bitarray, char_size)
+            self.encode_headers(node.right, bitarray, char_size) 
