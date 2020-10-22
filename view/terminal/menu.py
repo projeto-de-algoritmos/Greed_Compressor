@@ -11,8 +11,13 @@ class Menu:
 
     def get_header(self) -> None:
         self.clear_terminal()
+        os.system("pyfiglet Greed Compressor")
         print("======================================")
         print("            Greed compressor          ")
+        print("                  by                  ")
+        print("       Elias Bernardo - @ebmm01       ")
+        print("       Erick Giffoni  - @ErickGiffoni ")
+        print("                 2020                 ")
         print("======================================")
         self.get_menu_options();
 
