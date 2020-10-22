@@ -8,6 +8,6 @@ class File:
             return file.readlines()
     
     @staticmethod
-    def save_file(path: str, file_content: bytes,  **kwargs):
-        with open(path, "wb") as f:
+    def save_file(path: str, file_content: bytes,  type: str ="wb", **kwargs):
+        with open(path, type, **kwargs) as f:
             f.write(file_content)
