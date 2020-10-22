@@ -3,6 +3,7 @@ from lib.file import File
 from bitstring import BitArray, BitStream, Bits
 from lib.utils import Utils
 from view.terminal.menu import Menu
+from view.terminal.view_utils import ViewUtils
 from typing import List
 import os
 from pathlib import Path
@@ -14,7 +15,9 @@ abs_file_path = os.path.join(script_dir, rel_path)
 
 class EncodeView:
     def __init__(self):
+        super(EncodeView, self).__init__()
         self.encode = Encode()
+        self.view_utils = ViewUtils()
         self.encode_handler_options = {
             1: self.encode_file_with_manual_path,
             2: self.encode_example_files,
@@ -32,22 +35,17 @@ class EncodeView:
     def encode_file_with_manual_path(self):
         file_path = input("Insira o caminho do arquivo com extensão\nEx: /home/user/Documentos/Greed_Compressor/examples/text.txt\n")
         
-        file = self.get_file(file_path)
+        file = self.view_utils.get_file(file_path, 'r', 3)
         
         encoded_file_content = self.encode_file(file)
         
-        encoded_file_path = os.path.join(abs_file_path, f'{self.request_file_name_from_user()}.greed_compressor')
+        encoded_file_path = os.path.join(
+            abs_file_path, 
+            f'{self.view_utils.request_file_name_from_user(type_="comprimido", folder="compressed_files", extension="greed_compressed")}.greed_compressed')
 
         File.save_file(encoded_file_path, file_content=encoded_file_content.tobytes())
 
         self.calculate_size_diference(file_path, encoded_file_path)
-
-    def request_file_name_from_user(self) -> str:
-        print("\nQual será o nome do arquivo comprimido?")
-        print("Obs.: Ele será salvo na pasta compressed_files/ com a extensão \{nome\}.greed_compressor")
-        print("Obs 2.: O compressor espera arquivos de texto. Ele funciona bem com txt, docx, etc mas não com pdf's e imagens, por exemplo.")
-        print("Obs 3.: O compressor funciona com encode em UTF-X.")
-        return input("Nome:: ")
 
     def encode_example_files(self):
         self.menu.encode.get_decode_example_files()
@@ -60,22 +58,17 @@ class EncodeView:
 
         original_file_path = os.path.join(script_dir, "../../../examples/" + self.example_files[option])
 
-        file = self.get_file(original_file_path)
+        file = self.view_utils.get_file(original_file_path, 'r', 3)
 
         encoded_file_content = self.encode_file(file)
 
-        encoded_file_path = os.path.join(abs_file_path, f'{self.request_file_name_from_user()}.greed_compressor')
+        encoded_file_path = os.path.join(
+            abs_file_path, 
+            f'{self.view_utils.request_file_name_from_user(type_="comprimido", folder="compressed_files", extension="greed_compressed")}.greed_compressed')
 
         File.save_file(encoded_file_path, file_content=encoded_file_content.tobytes())
 
         self.calculate_size_diference(original_file_path, encoded_file_path)
-        
-    def get_file(self, file_path: str) -> List[str]:
-        try:
-            return File.open_file(file_path, 'r', encoding='UTF-8')
-        except IOError as error:
-            input("Erro ao abrir arquivo. Pressione qualquer tecla", error)
-            return self.encode_handler_options[3]()
 
     def encode_file(self, file: List[str]) -> 'BitArray':
         file_content = ''.join(file)
@@ -110,4 +103,4 @@ class EncodeView:
         print("Tamanho do arquivo original::", original_file_size, "bytes")
         print("Tamanho do arquivo comprimido::", encoded_file_size, "bytes")
         print("Diferença de tamanho entre os arquivos::", original_file_size - encoded_file_size)
-        print("Porcentagem de compressão::", f"{(encoded_file_size / original_file_size) * 100 }" + "%")
+        print("Porcentagem de compressão::", f"{ (1 - (encoded_file_size / original_file_size)) * 100 }" + "%")

@@ -1,5 +1,8 @@
 from typing import List
+from pyfiglet import Figlet
 import os
+
+f = Figlet()
 
 class Menu:
     def __init__(self):
@@ -11,7 +14,7 @@ class Menu:
 
     def get_header(self) -> None:
         self.clear_terminal()
-        os.system("pyfiglet Greed Compressor")
+        print(f.renderText("Greed Compressor"))
         print("======================================")
         print("            Greed compressor          ")
         print("                  by                  ")
@@ -41,7 +44,7 @@ class Menu:
 
     class Encode:
 
-        def get_encode_options(self):
+        def get_options(self):
             print("1 - Informar caminho manualmente")
             print("2 - Usar arquivo de exemplo")
             print("3 - Voltar para o menu principal")
@@ -63,10 +66,9 @@ class Menu:
 
     class Decode:
         
-        def get_decode_options(self):
-            print("\n1 - Informar caminho manualmente")
-            print("2 - Usar arquivo de exemplo")
-            print("3 - Voltar para o menu principal\n")
+        def get_options(self):
+            print("\n1 - Informar caminho")
+            print("2 - Voltar para o menu principal\n")
         
 
         def decoding_text(self):
