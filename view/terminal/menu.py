@@ -40,7 +40,7 @@ class Menu:
             self.clear_terminal()
             return option
         except ValueError:
-            self.invalid_option(valid_options)
+            return self.invalid_option(valid_options)
 
     def invalid_option(self, valid_options):
             print("\n Opção inválida. Tente novamente. \n")
