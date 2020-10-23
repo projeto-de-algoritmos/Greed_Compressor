@@ -17,7 +17,7 @@ Com ele você consegue comprimir um arquivo de texto no formato .txt  e gerar um
 **Greed Compressor** funciona segundo o [algoritmo de compressão de dados de Huffman](https://en.wikipedia.org/wiki/Huffman_coding)
 
 
-**Linguagem**: Python<br>
+**Linguagem**: Python 3.8<br>
 **Biblioteca(s)**: [bitstring](https://pypi.org/project/bitstring/), [pyfiglet](https://pypi.org/project/pyfiglet/0.7.5/)
 
 ### Requisitos para utilizar esse projeto
@@ -25,6 +25,7 @@ Com ele você consegue comprimir um arquivo de texto no formato .txt  e gerar um
 - conexão de internet;<br>
 - terminal/console/shell no computador;<br>
 - pip & venv
+- **Python 3.8** (necessariamente)
 - clonar o projeto;
 
 > Para clonar o projeto digite:
@@ -87,6 +88,8 @@ Após fazer o clone do projeto, siga os passos abaixo :
 ### Terminal - v1.0
 
 TODO - Vídeo de apresentação
+
+- É necessário ter o Python 3.8
 
 Com o projeto em execução escolha uma das opções numéricas do menu principal:
 
