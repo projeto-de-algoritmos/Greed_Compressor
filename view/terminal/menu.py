@@ -30,24 +30,21 @@ class Menu:
         print("0 - Sair/ Terminar execução")
     
     def get_option(self,valid_options: List[int]) -> int:
-        def invalid_option():
+        try:
+            option = int(input(f"\nEscolha uma opção dentre os valores válidos ({valid_options}): "))
+            print(option)
+            if option == 0:
+                self.exit_terminal()
+            if not option in valid_options:
+                return self.invalid_option(valid_options)
+            self.clear_terminal()
+            return option
+        except ValueError:
+            self.invalid_option(valid_options)
+
+    def invalid_option(self, valid_options):
             print("\n Opção inválida. Tente novamente. \n")
             return self.get_option(valid_options)
-
-        option = input(f"\nEscolha uma opção dentre os valores válidos ({valid_options}): ")
-        
-        try:
-            option = int(option)
-        except ValueError:
-            invalid_option()
-
-        if option == 0:
-            self.exit_terminal()
-        elif not option in valid_options:
-            invalid_option()
-
-        self.clear_terminal()
-        return option
 
     def exit_terminal(self, *args, **kwargs):
         print("\n SSaindo... \n ")
