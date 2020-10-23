@@ -48,6 +48,8 @@ class DecodeView:
 
         File.save_file(encoded_file_path, file_content=decoded_text, type='wt')
 
+        print("\n Arquivo descomprimido com sucesso. Ele está na pasta examples/ no formato .txt \n")
+
     def get_file_path(self) -> str:
         file_path = input("Insira o nome do arquivo sem extensão. Ele deve estar na pasta compressed_files/ com a extensão .greed_compressed\n")
         compressed_file_path = os.path.join(script_dir, "../../../compressed_files/")

@@ -11,9 +11,8 @@
 
 ## Sobre 
 
-**Greed Compressor** é um compressor de dados que funciona via execução pelo terminal/shell.<br>
-Com ele você consegue comprimir um arquivo de texto e gerar um arquivo binário com tamanho<br>
-reduzido, bem descomprimir um arquivo em binário para voltar ao original.<br>
+**Greed Compressor** é um compressor de dados que funciona via execução pelo terminal/shell. <br>
+Com ele você consegue comprimir um arquivo de texto no formato .txt  e gerar um arquivo binário com  <br> tamanho reduzido, bem como descomprimir um arquivo em binário (no formato .greed_compressed) <br>para voltar ao original.<br>
 
 **Greed Compressor** funciona segundo o [algoritmo de compressão de dados de Huffman](https://en.wikipedia.org/wiki/Huffman_coding)
 
@@ -25,7 +24,7 @@ reduzido, bem descomprimir um arquivo em binário para voltar ao original.<br>
 
 - conexão de internet;<br>
 - terminal/console/shell no computador;<br>
-- pip
+- pip & venv
 - clonar o projeto;
 
 > Para clonar o projeto digite:
@@ -33,8 +32,24 @@ reduzido, bem descomprimir um arquivo em binário para voltar ao original.<br>
     git clone https://github.com/projeto-de-algoritmos/Greed_Compressor.git
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
 
+### Versão Terminal - v1.0
+
+- Menu inicial
+
+![](images/terminal_home.png)
+
+<hr>
+
+- Compressão de arquivo realizada
+
+![](images/terminal_compressed.png)
+
+<hr>
+
+- Descompressão de arquivo realizada
+
+![](images/terminal_descrompressed.png)
 
 ## Instalação 
 
@@ -45,19 +60,33 @@ Após fazer o clone do projeto, siga os passos abaixo :
 >
     $ cd Greed_Compressor/
 
+- (Opcional) Caso não possua uma venv, gere uma:
+
+>
+    $ python -m venv <nome da venv>
+
+- (Opcional) Ative a venv caso não esteja:
+
+> Note que o comando abaixo pode variar de acordo com o sistema operacional. Em caso de dúvidas veja a [documentação](https://docs.python.org/pt-br/dev/library/venv.html)
+>
+    $ source venv/bin/activate
+
 - instale as dependências
 
 >
-
-    $ pip install -r requirements.txt
+    $ python -m pip install -r requirements.txt
 
 - execute o projeto
 
+> Para a versão terminal:
 >
-
     $ python -m view.terminal.main
 
 ## Uso 
+
+### Terminal - v1.0
+
+TODO - Vídeo de apresentação
 
 Com o projeto em execução escolha uma das opções numéricas do menu principal:
 
