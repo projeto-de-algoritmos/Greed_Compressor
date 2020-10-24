@@ -4,6 +4,7 @@ from lib.decode import Decode
 from typing import List
 from lib.utils import Utils
 from view.terminal.view_utils import ViewUtils
+from view.commons.decode_commons import DecodeCommons
 import os
 
 script_dir = os.path.dirname(__file__) 
@@ -25,22 +26,9 @@ class DecodeView:
         return self.decode_handler_options[option]()
 
     def decode_file_with_manual_path(self):
-        
-        
         file = self.view_utils.get_file(self.get_file_path(), 'rb', 2)
         
-        decCont = BitArray()
-        for line in file:
-            decCont.append(line)
-
-        x = BitStream(decCont)
-        char_size = Utils.get_encoded_file_char_size(x)
-        decoded_header_2 = self.decode.decode_headers(x, char_size)
-
-        hash_table = {}
-        decoded_header_2.generate_hashT(hash_table, "")
-        inv_map = {v: k for k, v in hash_table.items()}
-        decoded_text = self.decode.decode_text(decCont.bin[x.bitpos:x.len], inv_map)
+        decoded_text =  DecodeCommons.get_decoded_text(file)
 
         encoded_file_path = os.path.join(
             abs_file_path,
