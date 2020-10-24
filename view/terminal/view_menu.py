@@ -29,8 +29,3 @@ class ViewMenu(EncodeView, DecodeView):
     def return_to_menu(self):
         self.menu.get_header()
         self.handle_menu_option(self.menu.get_option([1,2]))
-
-
-
-class Decode:
-    pass

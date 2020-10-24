@@ -4,6 +4,7 @@ from bitstring import BitArray, BitStream, Bits
 from lib.utils import Utils
 from view.terminal.menu import Menu
 from view.terminal.view_utils import ViewUtils
+from view.commons.encode_commons import EncodeCommons
 from typing import List
 import os
 from pathlib import Path
@@ -37,7 +38,7 @@ class EncodeView:
         
         file = self.view_utils.get_file(file_path, 'r', 3)
         
-        encoded_file_content = self.encode_file(file)
+        encoded_file_content = EncodeCommons.encode_file(file)
         
         encoded_file_path = os.path.join(
             abs_file_path, 
@@ -60,7 +61,7 @@ class EncodeView:
 
         file = self.view_utils.get_file(original_file_path, 'r', 3)
 
-        encoded_file_content = self.encode_file(file)
+        encoded_file_content = EncodeCommons.encode_file(file)
 
         encoded_file_path = os.path.join(
             abs_file_path, 
@@ -70,31 +71,6 @@ class EncodeView:
 
         self.calculate_size_diference(original_file_path, encoded_file_path)
 
-    def encode_file(self, file: List[str]) -> 'BitArray':
-        file_content = ''.join(file)
-        binary_file_content = BitStream(Bits(file))
-        frequencies = self.encode.get_frequencies(file_content)
-
-        parent = self.encode.get_node_tree(frequencies)
-
-        hash_table = {}
-
-        parent.generate_hashT(hash_table, "")
-        x = binary_file_content.read(8)
-
-        encoded_text = self.encode.encode_text(file_content, hash_table)
-
-        char_size = Utils.get_largest_char_size(hash_table)
-
-        encoded_header = BitArray()
-
-        encoded_header = Utils.save_char_size_bits(encoded_header, char_size)
-
-        self.encode.encode_headers(parent, encoded_header, char_size)
-
-        bits = encoded_header.bin + encoded_text
-        
-        return BitArray('0b' + bits)
 
     def calculate_size_diference(self, original_file_path: str, encoded_file_path: str) -> None:
         original_file_size = Path(original_file_path).stat().st_size
