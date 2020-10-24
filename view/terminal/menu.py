@@ -32,7 +32,6 @@ class Menu:
     def get_option(self,valid_options: List[int]) -> int:
         try:
             option = int(input(f"\nEscolha uma opção dentre os valores válidos ({valid_options}): "))
-            print(option)
             if option == 0:
                 self.exit_terminal()
             if not option in valid_options:

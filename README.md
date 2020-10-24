@@ -87,7 +87,9 @@ Após fazer o clone do projeto, siga os passos abaixo :
 
 ### Terminal - v1.0
 
-TODO - Vídeo de apresentação
+- Vídeo de apresentação:
+    - YouTube: [clique aqui](https://youtu.be/cgA7xKcNwN4)
+    - mp4: [pasta images](./images/terminal_video.mp4)
 
 - É necessário ter o Python 3.8
 
