@@ -34,6 +34,20 @@ Com ele você consegue comprimir um arquivo de texto no formato .txt  e gerar um
 
 ## Screenshots
 
+### Versão GUI - v2.0
+
+- Tela de sucesso ao descomprimir um arquivo
+
+![](images/gui_descrompressed.png)
+
+- Tela de sucesso ao comprimir um arquivo
+
+![](images/gui_compressed.png)
+
+- Tela de seleção de arquivo
+
+![](images/gui_file_select.png)
+
 ### Versão Terminal - v1.0
 
 - Menu inicial
@@ -79,11 +93,20 @@ Após fazer o clone do projeto, siga os passos abaixo :
 
 - execute o projeto
 
+> Para a versão GUI
+>
+    $ python -m view.gui.main
+
 > Para a versão terminal:
 >
     $ python -m view.terminal.main
 
+
 ## Uso 
+
+### GUI - v2.0
+
+O uso da interface é auto explicativo.
 
 ### Terminal - v1.0
 
