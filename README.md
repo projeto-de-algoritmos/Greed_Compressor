@@ -11,7 +11,7 @@
 
 ## Sobre 
 
-**Greed Compressor** é um compressor de dados que funciona via execução pelo terminal/shell. <br>
+**Greed Compressor** é um compressor de dados que funciona via execução pelo terminal/shell (v1.0) e via GUI (v2.0). <br>
 Com ele você consegue comprimir um arquivo de texto no formato .txt  e gerar um arquivo binário com  <br> tamanho reduzido, bem como descomprimir um arquivo em binário (no formato .greed_compressed) <br>para voltar ao original.<br>
 
 **Greed Compressor** funciona segundo o [algoritmo de compressão de dados de Huffman](https://en.wikipedia.org/wiki/Huffman_coding)
@@ -106,7 +106,17 @@ Após fazer o clone do projeto, siga os passos abaixo :
 
 ### GUI - v2.0
 
-O uso da interface é auto explicativo.
+- Vídeo de apresentação : [v2.0](https://youtu.be/txIvJ-PFVrY)
+
+O uso da interface é auto explicativo, porém aqui estão alguns passos :
+
+- Clique em "selecionar" para escolher um arquivo
+
+- Se o arquivo selecionado for do tipo txt, clique em "Comprimir", depois "Confirmar"
+
+- Se o arquivo selecionado for do tipo greed_compressed, clique em "Descomprimir", depois "Confirmar"
+
+- Para sair, clique em "Sair"
 
 ### Terminal - v1.0
 
