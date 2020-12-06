@@ -16,6 +16,8 @@ Com ele você consegue comprimir um arquivo de texto no formato .txt  e gerar um
 
 **Greed Compressor** funciona segundo o [algoritmo de compressão de dados de Huffman](https://en.wikipedia.org/wiki/Huffman_coding)
 
+> Uma evolução mais recente para o **Greed Compressor** foi feita, a qual permite verificar diferenças entre arquivos por meio de um algoritmo de _diff_.<br>
+Saiba mais em : [Coé](https://github.com/projeto-de-algoritmos/Final_Coe)
 
 **Linguagem**: Python 3.8<br>
 **Biblioteca(s)**: [bitstring](https://pypi.org/project/bitstring/), [pyfiglet](https://pypi.org/project/pyfiglet/0.7.5/)
